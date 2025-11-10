@@ -1,0 +1,23 @@
+nav{
+    background: linear-gradient(to bottom, rgb(70, 3, 3), rgba(255,0,0,0));
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 35px;
+    padding-bottom: 45px;
+    z-index: 999;
+}
+
+.boton{
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 19px;
+}
+
+.navDer{
+    display: flex;
+    gap: 40px;
+}

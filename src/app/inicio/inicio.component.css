@@ -1,0 +1,56 @@
+:host{
+    z-index: 20;
+}
+
+p{
+    color: white;
+    font-size: 40px;
+    letter-spacing: -1.8px;
+}
+
+.inicio{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: red;
+    padding: 0;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.inicioIzq{
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    padding: 30px;
+}
+
+.inicioDer{
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    padding: 30px;
+}
+
+.fotoJaime{
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+}
+
+.redes{
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+.nombreRedes{
+    display: flex;
+    justify-content: center;
+}
+
+.botonesRedes{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
