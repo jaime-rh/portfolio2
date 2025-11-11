@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-inicio',
@@ -8,49 +8,48 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
 })
+
 export class InicioComponent implements OnInit {
-    textoActual = '';
-    private textos = ['Desarrollador Full Stack', 'Entusiasta de la tecnología'];
+  textoActual = '';
+  private textos = ['Desarrollador Full Stack', 'Entusiasta de la tecnología'];
+  private indiceTexto = 0;
 
-    private velocidadEscribir = 100;
-    private velocidadBorrar = 50;
-    private pausaFinal = 1500;
+  private velocidadEscribir = 30;
+  private velocidadBorrar = 40;
+  private pausaFinal = 2000;
 
-    constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private zone: NgZone) {}
 
-    ngOnInit(): void {
-      this.cicloTextos(0);
+  ngOnInit(): void {
+    // Ejecuta el ciclo de escritura fuera de Angular para no bloquear la hidratación
+    this.zone.runOutsideAngular(() => {
+      this.iniciarCiclo();
+    });
+  }
+
+  private iniciarCiclo(): void {
+    const texto = this.textos[this.indiceTexto];
+    this.escribir(texto, 0);
+  }
+
+  private escribir(texto: string, i: number): void {
+    if (i <= texto.length) {
+      // como estamos fuera de Angular, hay que forzar render solo cuando cambia texto
+      this.zone.run(() => (this.textoActual = texto.slice(0, i)));
+      setTimeout(() => this.escribir(texto, i + 1), this.velocidadEscribir);
+    } else {
+      setTimeout(() => this.borrar(texto, texto.length), this.pausaFinal);
     }
+  }
 
-    private cicloTextos(indiceTexto: number): void {
-      const textoActual = this.textos[indiceTexto];
-      let indiceLetra = textoActual.length;
-
-      // Borrar el texto letra por letra
-      const borrar = () => {
-        if (indiceLetra >= 0) {
-          this.textoActual = textoActual.slice(0, indiceLetra--);
-          this.cdr.detectChanges();
-          setTimeout(borrar, this.velocidadBorrar);
-        } else {
-          escribir(0);
-        }
-      };
-
-      // Escribir el siguiente texto letra por letra
-      const escribir = (i: number) => {
-        const siguienteTexto = this.textos[(indiceTexto + 1) % this.textos.length];
-        if (i <= siguienteTexto.length) {
-          this.textoActual = siguienteTexto.slice(0, i);
-          this.cdr.detectChanges();
-          setTimeout(() => escribir(i + 1), this.velocidadEscribir);
-        } else {
-          setTimeout(() => this.cicloTextos((indiceTexto + 1) % this.textos.length), this.pausaFinal);
-        }
-      };
-
-      borrar(); // iniciar borrado
+  private borrar(texto: string, i: number): void {
+    if (i > 0) {
+      this.zone.run(() => (this.textoActual = texto.slice(0, i - 1)));
+      setTimeout(() => this.borrar(texto, i - 1), this.velocidadBorrar);
+    } else {
+      this.indiceTexto = (this.indiceTexto + 1) % this.textos.length;
+      this.iniciarCiclo();
     }
+  }
 }
-
 
