@@ -9,13 +9,31 @@ nav{
     z-index: 999;
 }
 
-.boton{
-    background-color: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 19px;
+.boton {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 19px;
+  position: relative;
+  overflow: hidden;
 }
+
+.boton::after {
+  content: "";
+  position: absolute;
+  bottom: 0; /* Línea debajo del texto */
+  left: 0;
+  width: 0;
+  height: 3px; /* Grosor del subrayado */
+  background-color: #F85F5F; /* Color del subrayado */
+  transition: width 0.3s ease;
+}
+
+.boton:hover::after {
+  width: 100%;
+}
+
 
 .navDer{
     display: flex;

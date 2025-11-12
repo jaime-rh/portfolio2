@@ -1,0 +1,69 @@
+.boton {
+    display: flex;
+    flex-direction: column; /* icono arriba, texto abajo */
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+
+    /* Forma y tamaño */
+    padding: 15px 25px;
+    border-radius: 15px;       /* bordes redondeados */
+    border: none;
+    width: 150px;               /* ajusta según quieras */
+    background-color: transparent; /* fondo translúcido */
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+
+    /* Sombra/borde solo arriba y lados */
+    box-shadow: 0 -4px 6px -2px #F85F5F;  /* horizontal, vertical, blur, spread */
+    transition: all 0.3s ease;
+}
+
+.boton i {
+  font-size: 24px;
+}
+
+.boton:hover {
+
+}
+
+.icono{
+    font-size: 20px;
+}
+
+
+.titulo{
+    color: white;
+    font-size: 40px;
+}
+
+.descripcion{
+    color: white;
+    font-size: 20px;
+}
+
+.sobremi{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 70px;
+}
+
+.sobreMiArriba{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;    
+    text-align: center;
+}
+
+.sobreMiAbajo{
+   display: flex;
+   flex-direction: row;
+   gap: 5px;
+}
