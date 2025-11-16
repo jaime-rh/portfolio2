@@ -10,4 +10,10 @@ import { Component } from '@angular/core';
 })
 export class SobreMiComponent {
 
+  tabSeleccionado: string = ''; // tab inicial
+
+  cambiarTab(tab: string) {
+    this.tabSeleccionado = tab;
+  }
+
 }

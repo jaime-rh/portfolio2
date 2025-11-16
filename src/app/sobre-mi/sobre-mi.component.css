@@ -7,7 +7,7 @@
 
     /* Forma y tamaño */
     padding: 15px 25px;
-    border-radius: 15px;       /* bordes redondeados */
+    border-radius: 15px 15px 0 0;   /* bordes redondeados */
     border: none;
     width: 150px;               /* ajusta según quieras */
     background-color: transparent; /* fondo translúcido */
@@ -28,6 +28,27 @@
 .boton:hover {
 
 }
+
+.boton.activo {
+    background-color: #F85F5F;
+    box-shadow: none;
+    border: 2px solid white;
+    border-bottom: none;
+    transform: scale(1.05);
+}
+
+.contenido{
+    background-color: #F85F5F;
+    width: 65%;
+    height: 100%;
+    border-radius: 15px;
+    color: white;
+}
+
+.contenido-borde {
+    border: white 2px solid;
+}
+
 
 .icono{
     font-size: 20px;
@@ -50,7 +71,6 @@
     justify-content: center;
     align-items: center;
     margin-top: 50px;
-    gap: 70px;
 }
 
 .sobreMiArriba{
@@ -60,10 +80,89 @@
     align-items: center;
     width: 50%;    
     text-align: center;
+    margin-bottom: 70px;
 }
 
 .sobreMiAbajo{
    display: flex;
    flex-direction: row;
    gap: 5px;
+}
+
+
+.experiencia{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+.experienciaCont{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border: white 1px solid;
+    border-radius: 15px;
+}
+
+.empresa {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.trabajos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.trabajo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trabajo:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
+}
+
+.izquierda {
+  flex: 1;
+  color: white;
+}
+
+.izquierda h2 {
+  margin: 0 0 5px 0;
+}
+
+.izquierda p {
+  margin: 0;
+  font-size: 14px;
+  color: #ddd;
+}
+
+.derecha {
+  flex: 2;
+  color: white;
+  font-size: 14px;
+}
+
+.trabajoCont{
+    display: flex;
+    flex-direction: row;
 }

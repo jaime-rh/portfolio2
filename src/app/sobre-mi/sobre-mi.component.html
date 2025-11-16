@@ -1,28 +1,95 @@
 <div class="sobremi">
     <div class="sobreMiArriba">
         <p class="titulo">Conoce sobre mí</p>
-        <p class="descripcion">Cuento con experiencia en desarrollo web, aplicaciones multiplataforma, 
-            gestión de proyectos tecnológicos y
-            diseño gráfico. Apasionado por la resolución 
-            de problemas y la creación de soluciones eficientes, 
-            escalables y orientadas a resultados.</p>
+        <p class="descripcion">
+            Cuento con experiencia en desarrollo web, aplicaciones multiplataforma, 
+            gestión de proyectos tecnológicos y diseño gráfico. Apasionado por la 
+            resolución de problemas y la creación de soluciones eficientes.
+        </p>
     </div>
+
     <div class="sobreMiAbajo">
-        <button class="boton">
+        <button class="boton" 
+                [ngClass]="{ activo: tabSeleccionado === 'experiencia' }"
+                (click)="cambiarTab('experiencia')">
             <span class="icono">💼</span>
             Experiencia
         </button>
-        <button class="boton">
+
+        <button class="boton"
+                [ngClass]="{ activo: tabSeleccionado === 'educacion' }"
+                (click)="cambiarTab('educacion')">
             <span class="icono">🎓</span>
             Educación
         </button>
-        <button class="boton">
+
+        <button class="boton"
+                [ngClass]="{ activo: tabSeleccionado === 'tecnologias' }"
+                (click)="cambiarTab('tecnologias')">
             <span class="icono">💻</span>
             Tecnologías
         </button>
-        <button class="boton">
+
+        <button class="boton"
+                [ngClass]="{ activo: tabSeleccionado === 'proyectos' }"
+                (click)="cambiarTab('proyectos')">
             <span class="icono">🗂️</span>
             Proyectos
         </button>
+    </div>
+
+    <!-- CONTENIDO DE LOS TABS -->
+    <div class="contenido" *ngIf="tabSeleccionado" [ngClass]="{ 'contenido-borde': tabSeleccionado === 'experiencia' }">
+    <div *ngIf="tabSeleccionado === 'experiencia'" class="experiencia">
+        <!-- Contenedor de trabajos -->
+        <div class="trabajos">
+
+            <!-- Trabajo 1 -->
+            <div class="trabajo">
+            <div>
+                <h1 class="empresa">Infosolutions & Internet Services S.L.</h1>
+            </div>
+            <div class="trabajoCont">
+                <div class="izquierda">
+                    <h2>Desarrollador Full Stack</h2>
+                    <p>Marzo 2025 - Junio 2025</p>
+                </div>
+                <div class="derecha">
+                    <p>Fueron mis primeras prácticas como Desarrollador Web Full-Stack, donde aprendí muchísimo. Trabajé con PHP, APIs, librerías... En el propio sistema de la empresa y también trabajé con Wordpress.</p>
+                </div>
+            </div>
+            </div>
+
+             <!-- Trabajo 2 -->
+            <div class="trabajo">
+            <div>
+                <h1 class="empresa">BSH Electrodomésticos España S.A.</h1>
+            </div>
+            <div class="trabajoCont">
+                <div class="izquierda">
+                    <h2>Especialista Técnico</h2>
+                    <p>Marzo 2023 - Junio 2023</p>
+                </div>
+                <div class="derecha">
+                    <p>Fuí encargado de diagnosticar, reparar y mantener electrodomésticos del hogar, garantizando un servicio eficiente, seguro y centrado en la satisfacción del cliente.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+
+        <div *ngIf="tabSeleccionado === 'educacion'" class="educacion">
+            <p>Probando contenido de educación.</p>
+        </div>
+
+        <div *ngIf="tabSeleccionado === 'tecnologias'" class="tecnologias">
+            <p>Probando contenido de tecnologías.</p>
+        </div>
+
+        <div *ngIf="tabSeleccionado === 'proyectos'" class="proyectos">
+            <p>Probando contenido de proyectos.</p>
+        </div>
     </div>
 </div>
