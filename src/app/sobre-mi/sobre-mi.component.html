@@ -40,56 +40,228 @@
 
     <!-- CONTENIDO DE LOS TABS -->
     <div class="contenido" *ngIf="tabSeleccionado" [ngClass]="{ 'contenido-borde': tabSeleccionado === 'experiencia' }">
-    <div *ngIf="tabSeleccionado === 'experiencia'" class="experiencia">
-        <!-- Contenedor de trabajos -->
-        <div class="trabajos">
 
-            <!-- Trabajo 1 -->
-            <div class="trabajo">
-            <div>
-                <h1 class="empresa">Infosolutions & Internet Services S.L.</h1>
-            </div>
-            <div class="trabajoCont">
-                <div class="izquierda">
-                    <h2>Desarrollador Full Stack</h2>
-                    <p>Marzo 2025 - Junio 2025</p>
-                </div>
-                <div class="derecha">
-                    <p>Fueron mis primeras prácticas como Desarrollador Web Full-Stack, donde aprendí muchísimo. Trabajé con PHP, APIs, librerías... En el propio sistema de la empresa y también trabajé con Wordpress.</p>
-                </div>
-            </div>
-            </div>
+        <!-- Contenedor de experiencia -->
+        <div *ngIf="tabSeleccionado === 'experiencia'" class="experiencia">
+            <div class="trabajos">
 
-             <!-- Trabajo 2 -->
-            <div class="trabajo">
-            <div>
-                <h1 class="empresa">BSH Electrodomésticos España S.A.</h1>
-            </div>
-            <div class="trabajoCont">
-                <div class="izquierda">
-                    <h2>Especialista Técnico</h2>
-                    <p>Marzo 2023 - Junio 2023</p>
+                <!-- Trabajo 1 -->
+                <div class="trabajo">
+                <div>
+                    <h1 class="empresa">Infosolutions & Internet Services S.L.</h1>
                 </div>
-                <div class="derecha">
-                    <p>Fuí encargado de diagnosticar, reparar y mantener electrodomésticos del hogar, garantizando un servicio eficiente, seguro y centrado en la satisfacción del cliente.</p>
+                <div class="trabajoCont">
+                    <div class="izquierda">
+                        <h2>Desarrollador Full Stack</h2>
+                        <p>Marzo 2025 - Junio 2025</p>
+                    </div>
+                    <div class="derecha">
+                        <p>Fueron mis primeras prácticas como Desarrollador Web Full-Stack, donde aprendí muchísimo. Trabajé con PHP, APIs, librerías... En el propio sistema de la empresa y también trabajé con Wordpress.</p>
+                    </div>
                 </div>
-            </div>
+                </div>
+
+                <!-- Trabajo 2 -->
+                <div class="trabajo">
+                <div>
+                    <h1 class="empresa">BSH Electrodomésticos España S.A.</h1>
+                </div>
+                <div class="trabajoCont">
+                    <div class="izquierda">
+                        <h2>Especialista Técnico</h2>
+                        <p>Marzo 2023 - Junio 2023</p>
+                    </div>
+                    <div class="derecha">
+                        <p>Fuí encargado de diagnosticar, reparar y mantener electrodomésticos del hogar, garantizando un servicio eficiente, seguro y centrado en la satisfacción del cliente.</p>
+                    </div>
+                </div>
+                </div>
             </div>
         </div>
-    </div>
 
-
-
+        <!-- Contenedor de educacion -->
         <div *ngIf="tabSeleccionado === 'educacion'" class="educacion">
-            <p>Probando contenido de educación.</p>
+            <div class="grados">
+                <div class="grado">
+                    <div class="gradoInfo">
+                        <h3 class="gradoTitulo">Grado Superior Desarrollo de Aplicaciones Web (DAW)</h3>
+                        <span class="institucion">IES San Juan de la Cruz</span>
+                        <span class="periodo">Septiembre 2023 - Junio 2025</span>
+                    </div>
+                    <div class="gradoDescripcion">
+                        <p>
+                          Formación especializada en creación y mantenimiento de aplicaciones y sitios web, con conocimientos en programación front-end y back-end, bases de datos, integración de APIs y buenas prácticas de desarrollo. Durante el grado desarrollé proyectos completos que combinan creatividad, funcionalidad y eficiencia tecnológica.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grado">
+                    <div class="gradoInfo">
+                        <h3 class="gradoTitulo">Grado Medio Telecomunicaciones</h3>
+                        <span class="institucion">IES Julio Verne</span>
+                        <span class="periodo">Septiembre 2021 - Junio 2023</span>
+                    </div>
+                    <div class="gradoDescripcion">
+                        <p>
+                          Formación centrada en instalación, mantenimiento y gestión de sistemas de telecomunicaciones y equipos audiovisuales. Durante el grado adquirí conocimientos en redes, transmisión de datos, configuración de dispositivos y producción audiovisual, desarrollando habilidades técnicas y creativas para proyectos multimedia y de comunicación.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
 
+        <!-- Contenedor de tecnologias -->
         <div *ngIf="tabSeleccionado === 'tecnologias'" class="tecnologias">
-            <p>Probando contenido de tecnologías.</p>
+            <div class="divBotones">
+                <button class="botonTecno" [ngClass]="{ 'activo': seccion === 'frontend' }" (click)="seleccionar('frontend')">Frontend</button>
+                <button class="botonTecno" [ngClass]="{ 'activo': seccion === 'backend' }" (click)="seleccionar('backend')">Backend</button>
+                <button class="botonTecno" [ngClass]="{ 'activo': seccion === 'bd' }" (click)="seleccionar('bd')">Bases de datos</button>
+                <button class="botonTecno" [ngClass]="{ 'activo': seccion === 'frameworks' }" (click)="seleccionar('frameworks')">Frameworks</button>
+                <button class="botonTecno" [ngClass]="{ 'activo': seccion === 'herramientas' }" (click)="seleccionar('herramientas')">Herramientas y otros</button>
+            </div>
+        
+            <!-- Contenidos -->
+            <div class="contenidoTecno">
+                <div *ngIf="seccion === 'frontend'" class="front">
+                    <div class="contenidoLenguajes">
+                        <h3 class="tituloFront">HTML</h3>
+                        <i class="fa-brands fa-html5 iconoHtml iconoFront"></i>
+                    </div>
+                    <div class="contenidoLenguajes">
+                        <h3  class="tituloFront">CSS3</h3>
+                        <i class="fa-brands fa-css3-alt iconoFront"></i>
+                    </div>
+                    <div class="contenidoLenguajes">
+                        <h3  class="tituloFront">JavaScript</h3>
+                        <i class="fa-brands fa-js iconoFront"></i>
+                    </div>
+                    <div class="contenidoLenguajes">
+                        <h3  class="tituloFront">TypeScript</h3>
+                        <i class="fa-solid fa-code iconoFront"></i>
+                    </div>
+                </div>
+
+                <div *ngIf="seccion === 'backend'" class="back">
+                    <div class="contenidoLenguajes">
+                        <h3 class="tituloFront">PHP</h3>
+                        <i class="fa-brands fa-php iconoFront"></i>
+                    </div>
+                    <div class="contenidoLenguajes">
+                        <h3  class="tituloFront">Java</h3>
+                        <i class="fa-brands fa-java iconoFront"></i>
+                    </div>
+                    <div class="contenidoLenguajes">
+                        <h3  class="tituloFront">Python</h3>
+                        <i class="fa-brands fa-python iconoFront"></i>
+                    </div>
+                </div>
+
+                <div *ngIf="seccion === 'bd'" class="bd">
+                    <div class="contenidoLenguajes">
+                        <h3 class="tituloFront">SQL</h3>
+                        <i class="fa-solid fa-database iconoFront"></i>
+                    </div>
+                    <div class="contenidoLenguajes">
+                        <h3  class="tituloFront">MongoDB</h3>
+                        <i class="fa-brands fa-mdb iconoFront"></i>
+                    </div>
+                    <div class="contenidoLenguajes">
+                        <h3  class="tituloFront">PostgreSQL</h3>
+                        <i class="fa-solid fa-server  iconoFront"></i> 
+                    </div>
+                </div>
+
+                <div *ngIf="seccion === 'frameworks'" class="frameworks">
+                    <div class="contenidoLenguajes">
+                        <h3 class="tituloFront">Angular</h3>
+                        <i class="fa-brands fa-angular iconoFront"></i>
+                    </div>
+                    <div class="contenidoLenguajes">
+                        <h3  class="tituloFront">React</h3>
+                        <i class="fa-brands fa-react iconoFront"></i>
+                    </div>
+                    <div class="contenidoLenguajes">
+                        <h3  class="tituloFront">Node</h3>
+                        <i class="fa-brands fa-node-js  iconoFront"></i> 
+                    </div>
+                </div>
+
+                <div *ngIf="seccion === 'herramientas'" class="herramientas">
+                    <div class="contenidoLenguajes">
+                        <h3 class="tituloFront">GitHub</h3>
+                        <i class="fa-brands fa-github iconoFront"></i>
+                    </div>
+                    <div class="contenidoLenguajes">
+                        <h3  class="tituloFront">VSCode</h3>
+                        <i class="fa-solid fa-file-code iconoFront"></i>
+                    </div>
+                    <div class="contenidoLenguajes">
+                        <h3  class="tituloFront">Figma</h3>
+                        <i class="fa-solid fa-palette  iconoFront"></i> 
+                    </div>
+                    <div class="contenidoLenguajes">
+                        <h3  class="tituloFront">IA</h3>
+                        <i class="fa-solid fa-robot  iconoFront"></i> 
+                    </div>
+                    <div class="contenidoLenguajes">
+                        <h3  class="tituloFront">APIs</h3>
+                        <i class="fa-solid fa-plug  iconoFront"></i> 
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div *ngIf="tabSeleccionado === 'proyectos'" class="proyectos">
-            <p>Probando contenido de proyectos.</p>
+        <!-- Contenedor de poryectos -->
+        <div *ngIf="tabSeleccionado === 'proyectos'" class="proyectosM">
+            <div class="proyectos">
+                <div class="proyecto">
+                    <div class="proyectoFoto">
+                        <img src="assets/img/filmogram.png" alt="Filmogram" class="fotoProyecto">
+                    </div>
+
+                    <div class="proyectoDescripcion">
+                        <div class="proyectoInfo">
+                            <h3 class="proyectoTitulo">Filmogram</h3>
+                            <p class="proyectoResumen">
+                            Aplicación web full-stack tipo red social de películas desarrollada con React, Node.js y MySQL.
+                            </p>
+                        </div>
+                        <div class="proyectoTecnologias">
+                            <button class="botonProyecto"><i class="fab fa-node-js" style="color: #68A063;"></i> Node.js</button>
+                            <button class="botonProyecto"><i class="fas fa-file-code" style="color: #3178C6;"></i> TypeScript</button>
+                            <button class="botonProyecto"><i class="fab fa-react" style="color: #61DAFB;"></i> React</button>
+                            <button class="botonProyecto"><i class="fas fa-database" style="color: #00758F;"></i> MySQL</button>
+                            <button class="botonProyecto"><i class="fas fa-network-wired" style="color: #20c997;"></i> APIs</button>
+                            <button class="botonProyecto"><i class="fas fa-paint-brush" style="color: #88e4eb;"></i> Tailwind</button>
+                            <button class="botonProyecto"><i class="fab fa-html5" style="color: #E34F26;"></i> HTML</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="proyecto">
+                    <div class="proyectoFoto">
+                        <img src="assets/img/booknest.png" alt="Filmogram" class="fotoProyecto">
+                    </div>
+
+                    <div class="proyectoDescripcion">
+                        <div class="proyectoInfo">
+                            <h3 class="proyectoTitulo">Booknest</h3>
+                            <p class="proyectoResumen">
+                            Aplicación web full-stack red social de libros desarrollada con React, Node.js y MySQL.
+                            </p>
+                        </div>
+                        <div class="proyectoTecnologias">
+                            <button class="botonProyecto"><i class="fab fa-node-js" style="color: #68A063;"></i> Node.js</button>
+                            <button class="botonProyecto"><i class="fas fa-file-code" style="color: #3178C6;"></i> TypeScript</button>
+                            <button class="botonProyecto"><i class="fab fa-react" style="color: #61DAFB;"></i> React</button>
+                            <button class="botonProyecto"><i class="fas fa-database" style="color: #00758F;"></i> MySQL</button>
+                            <button class="botonProyecto"><i class="fas fa-network-wired" style="color: #20c997;"></i> APIs</button>
+                            <button class="botonProyecto"><i class="fas fa-paint-brush" style="color: #88e4eb;"></i> Tailwind</button>
+                            <button class="botonProyecto"><i class="fab fa-html5" style="color: #E34F26;"></i> HTML</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

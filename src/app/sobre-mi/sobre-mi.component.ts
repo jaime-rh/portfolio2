@@ -16,4 +16,10 @@ export class SobreMiComponent {
     this.tabSeleccionado = tab;
   }
 
+  seccion: string = 'frontend'; //tabs de tecnoilogias (por defecto sale primero siempre frontend)
+
+  seleccionar(seccion: string) {
+    this.seccion = seccion;
+  }
+
 }

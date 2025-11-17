@@ -43,6 +43,7 @@
     height: 100%;
     border-radius: 15px;
     color: white;
+    border: white 2px solid;
 }
 
 .contenido-borde {
@@ -132,12 +133,12 @@
   background-color: rgba(255, 255, 255, 0.1);
   padding: 30px;
   border-radius: 10px;
-   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .trabajo:hover {
-  transform: scale(1.05); 
+  transform: scale(1.02); 
   box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
 }
 
@@ -148,6 +149,7 @@
 
 .izquierda h2 {
   margin: 0 0 5px 0;
+  font-size: 18px;
 }
 
 .izquierda p {
@@ -165,4 +167,283 @@
 .trabajoCont{
     display: flex;
     flex-direction: row;
+}
+
+.divBotones{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 35px;
+}
+
+.botonTecno{
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 5px;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.botonTecno.activo {
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 6px white;
+  transform: scale(1.05);
+}
+
+.botonTecno:hover{
+  background-color: rgba(255,255,255,0.1);
+  transform: scale(1.02);
+}
+
+.front{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 30px;
+  padding-top: 5px;
+  padding-bottom: 40px;
+}
+
+.back{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 30px;
+  padding-top: 5px;
+  padding-bottom: 40px;
+}
+
+.bd{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 30px;
+  padding-top: 5px;
+  padding-bottom: 40px;
+}
+
+.frameworks{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 30px;
+  padding-top: 5px;
+  padding-bottom: 40px;
+}
+
+.proyectosM{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 30px;
+  padding-top: 5px;
+  padding-bottom: 40px;
+}
+
+.herramientas{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 30px;
+  padding-top: 5px;
+  padding-bottom: 40px;
+}
+
+.contenidoLenguajes{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  width: 120px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  gap: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contenidoLenguajes:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3); 
+}
+
+
+.tituloFront{
+  color: white;
+  font-size: 19px;
+}
+
+.iconoFront{
+  font-size: 60px;
+}
+
+.educacion{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  gap: 10px;
+}
+
+.tituloSeccion {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 10px;
+}
+
+.grado {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grado:hover {
+  transform: scale(1.02); 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.gradoInfo {
+  flex: 1;
+  min-width: 200px;
+}
+
+.gradoTitulo {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.institucion {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.periodo {
+  display: block;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+.gradoDescripcion {
+  flex: 2;
+  line-height: 1.6;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.grados{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+
+.tituloSeccion {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 10px;
+}
+
+.proyectos{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.proyecto {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.proyecto:hover {
+  transform: scale(1.02); 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.proyectoFoto img {
+  width: 500px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  align-items: center;
+}
+
+.proyectoDescripcion {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.proyectoTitulo {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.proyectoResumen {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.proyectoTecnologias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.botonProyecto {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+  cursor: default;
+  font-size: 0.9rem;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: background-color 0.2s ease;
+}
+
+.botonProyecto:hover {
+  background-color: rgba(255,255,255,0.2);
 }
