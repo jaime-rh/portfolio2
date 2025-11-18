@@ -25,10 +25,6 @@
   font-size: 24px;
 }
 
-.boton:hover {
-
-}
-
 .boton.activo {
     background-color: #F85F5F;
     box-shadow: none;
