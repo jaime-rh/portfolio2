@@ -10,7 +10,7 @@ import { IdiomaService } from '../services/idioma.service';
 })
 export class CVComponent {
   idiomaActual: 'es' | 'en' = 'es';
-  pdfFilePath: string = 'assets/pdf/cv-jaime-romero-hernández.pdf';
+  pdfFilePath: string = '/assets/pdf/cv-jaime-romero-hernández.pdf';
   pdfUrl: SafeResourceUrl;
 
   textos = {
@@ -28,9 +28,9 @@ export class CVComponent {
 
       // Cambiar ruta del PDF según idioma
       if (this.idiomaActual === 'es') {
-        this.pdfFilePath = 'assets/pdf/cv-jaime-romero-hernández.pdf';
+        this.pdfFilePath = '/assets/pdf/CV-Jaime-Romero-Hernández.pdf';
       } else {
-        this.pdfFilePath = 'assets/pdf/cv-jaime-romero-hernández-en.pdf';
+        this.pdfFilePath = '/assets/pdf/CV-Jaime-Romero-Hernández-EN.pdf';
       }
 
       this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.pdfFilePath);
