@@ -28,9 +28,9 @@ export class CVComponent {
 
       // Cambiar ruta del PDF según idioma
       if (this.idiomaActual === 'es') {
-        this.pdfFilePath = 'assets/pdf/CV-Jaime-Romero-Hernández.pdf';
+        this.pdfFilePath = 'assets/pdf/cv-Jaime-Romero-Hernández.pdf';
       } else {
-        this.pdfFilePath = 'assets/pdf/CV-Jaime-Romero-Hernández-EN.pdf';
+        this.pdfFilePath = 'assets/pdf/cv-Jaime-Romero-Hernández-en.pdf';
       }
 
       this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.pdfFilePath);
