@@ -37,8 +37,8 @@ export class CVComponent implements OnInit { // 👈 Implementar OnInit
       // Definir la ruta sin sanitizar
       const rawPath =
         this.idiomaActual === 'es'
-          ? 'assets/pdf/CV-Jaime-Romero-Hernández.pdf'
-          : 'assets/pdf/CV-Jaime-Romero-Hernández-EN.pdf';
+          ? 'assets/pdf/CV-Jaime-Romero-Hern%C3%A1ndez.pdf'
+          : 'assets/pdf/CV-Jaime-Romero-Hern%C3%A1ndez-EN.pdf';
 
       // 🚨 IMPORTANTE: Asignar la ruta simple para el enlace de descarga (<a>)
       this.pdfFilePath = rawPath;
