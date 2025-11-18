@@ -1,10 +1,17 @@
 <div class="container">
-  <iframe [src]="pdfUrl" class="pdf-viewer"></iframe>
-  <a
-    [href]="pdfFilePath"
-    download="CV-Jaime-Romero-Hernández.pdf"
-    class="download-btn"
-  >
-    {{ textos[idiomaActual].descargar }}
-  </a>
+  <object 
+    [data]="pdfUrl" 
+    type="application/pdf"
+    class="pdf-viewer">
+      <p>Tu navegador no puede mostrar PDF. 
+        <a [href]="pdfFilePath" download>Descargar PDF</a>
+      </p>
+  </object>
+  <a
+    [href]="pdfFilePath"
+    download="CV-Jaime-Romero-Hernández.pdf"
+    class="download-btn"
+  >
+    {{ textos[idiomaActual].descargar }}
+  </a>
 </div>

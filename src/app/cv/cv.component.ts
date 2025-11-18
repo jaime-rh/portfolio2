@@ -1,39 +1,50 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { IdiomaService } from '../services/idioma.service';
+import { CommonModule } from '@angular/common'; // Importar si se usa *ngIf u otros pipes
 
 @Component({
-  selector: 'app-cv',
-  standalone: true,
-  templateUrl: './cv.component.html',
-  styleUrls: ['./cv.component.css']
+  selector: 'app-cv',
+  standalone: true,
+  imports: [CommonModule], // Se requiere para *ngIf si lo usas
+  templateUrl: './cv.component.html',
+  styleUrls: ['./cv.component.css']
 })
-export class CVComponent {
-  idiomaActual: 'es' | 'en' = 'es';
-  pdfFilePath: string = '/assets/pdf/cv-jaime-romero-hernández.pdf';
-  pdfUrl: SafeResourceUrl;
+export class CVComponent implements OnInit { // 👈 Implementar OnInit
 
-  textos = {
-    es: { descargar: 'Descargar CV' },
-    en: { descargar: 'Download CV' }
-  };
+  idiomaActual: 'es' | 'en' = 'es';
+  pdfUrl!: SafeResourceUrl;
+  pdfFilePath!: string;
 
-  constructor(private sanitizer: DomSanitizer, private idiomaService: IdiomaService) {
-    this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.pdfFilePath);
+  textos = {
+    es: { descargar: 'Descargar CV' },
+    en: { descargar: 'Download CV' }
+  };
 
-    // Suscribirse a cambios de idioma con type assertion
-    this.idiomaService.idioma$.subscribe((idioma) => {
-      // Forzamos el tipo a 'es' | 'en'
-      this.idiomaActual = idioma as 'es' | 'en';
+  constructor(
+    private sanitizer: DomSanitizer,
+    private idiomaService: IdiomaService
+  ) {}
 
-      // Cambiar ruta del PDF según idioma
-      if (this.idiomaActual === 'es') {
-        this.pdfFilePath = '/assets/pdf/CV-Jaime-Romero-Hernández.pdf';
-      } else {
-        this.pdfFilePath = '/assets/pdf/CV-Jaime-Romero-Hernández-EN.pdf';
-      }
+  ngOnInit() {
+    // 1. Ejecutar la lógica de cambio de idioma al inicio (para la inicialización)
+    // 2. Ejecutarla en cada cambio de idioma
+    
+    // Suscribirse a cambios de idioma
+    this.idiomaService.idioma$.subscribe((idioma) => {
+      this.idiomaActual = idioma as 'es' | 'en';
 
-      this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.pdfFilePath);
-    });
-  }
+      // Definir la ruta sin sanitizar
+      const rawPath =
+        this.idiomaActual === 'es'
+          ? 'assets/pdf/CV-Jaime-Romero-Hernández.pdf'
+          : 'assets/pdf/CV-Jaime-Romero-Hernández-EN.pdf';
+
+      // 🚨 IMPORTANTE: Asignar la ruta simple para el enlace de descarga (<a>)
+      this.pdfFilePath = rawPath;
+      
+      // 🔒 IMPORTANTE: Sanear la ruta para el iframe ([src])
+      this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(rawPath);
+    });
+  }
 }
