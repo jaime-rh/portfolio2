@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CVComponent } from './cv.component';
 
 describe('CVComponent', () => {
