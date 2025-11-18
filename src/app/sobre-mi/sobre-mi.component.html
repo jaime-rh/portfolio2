@@ -1,10 +1,8 @@
 <div class="sobremi">
     <div class="sobreMiArriba">
-        <p class="titulo">Conoce sobre mí</p>
+        <p class="titulo">{{ textos.titulo }}</p>
         <p class="descripcion">
-            Cuento con experiencia en desarrollo web, aplicaciones multiplataforma, 
-            gestión de proyectos tecnológicos y diseño gráfico. Apasionado por la 
-            resolución de problemas y la creación de soluciones eficientes.
+            {{ textos.descripcion }}
         </p>
     </div>
 
@@ -13,28 +11,28 @@
                 [ngClass]="{ activo: tabSeleccionado === 'experiencia' }"
                 (click)="cambiarTab('experiencia')">
             <span class="icono">💼</span>
-            Experiencia
+            {{ textos.experiencia }}
         </button>
 
         <button class="boton"
                 [ngClass]="{ activo: tabSeleccionado === 'educacion' }"
                 (click)="cambiarTab('educacion')">
             <span class="icono">🎓</span>
-            Educación
+            {{ textos.educacion }}
         </button>
 
         <button class="boton"
                 [ngClass]="{ activo: tabSeleccionado === 'tecnologias' }"
                 (click)="cambiarTab('tecnologias')">
             <span class="icono">💻</span>
-            Tecnologías
+            {{ textos.tecnologias }}
         </button>
 
         <button class="boton"
                 [ngClass]="{ activo: tabSeleccionado === 'proyectos' }"
                 (click)="cambiarTab('proyectos')">
             <span class="icono">🗂️</span>
-            Proyectos
+            {{ textos.proyectos }}
         </button>
     </div>
 
@@ -50,13 +48,13 @@
                 <div>
                     <h1 class="empresa">Infosolutions & Internet Services S.L.</h1>
                 </div>
-                <div class="trabajoCont">
+                <div class="trabajoCont" *ngFor="let item of textos.experienciaDetalle">
                     <div class="izquierda">
-                        <h2>Desarrollador Full Stack</h2>
-                        <p>Marzo 2025 - Junio 2025</p>
+                        <h2>{{ item.titulo }}</h2>
+                        <p>{{ item.periodo }}</p>
                     </div>
                     <div class="derecha">
-                        <p>Fueron mis primeras prácticas como Desarrollador Web Full-Stack, donde aprendí muchísimo. Trabajé con PHP, APIs, librerías... En el propio sistema de la empresa y también trabajé con Wordpress.</p>
+                        <p>{{ item.descripcion }}</p>
                     </div>
                 </div>
                 </div>
@@ -66,13 +64,13 @@
                 <div>
                     <h1 class="empresa">BSH Electrodomésticos España S.A.</h1>
                 </div>
-                <div class="trabajoCont">
+                <div class="trabajoCont" *ngFor="let item of textos.experienciaDetalle">
                     <div class="izquierda">
-                        <h2>Especialista Técnico</h2>
-                        <p>Marzo 2023 - Junio 2023</p>
+                        <h2>{{ item.titulo2 }}</h2>
+                        <p>{{ item.periodo2 }}</p>
                     </div>
                     <div class="derecha">
-                        <p>Fuí encargado de diagnosticar, reparar y mantener electrodomésticos del hogar, garantizando un servicio eficiente, seguro y centrado en la satisfacción del cliente.</p>
+                        <p>{{ item.descripcion2 }}</p>
                     </div>
                 </div>
                 </div>
@@ -82,42 +80,28 @@
         <!-- Contenedor de educacion -->
         <div *ngIf="tabSeleccionado === 'educacion'" class="educacion">
             <div class="grados">
-                <div class="grado">
-                    <div class="gradoInfo">
-                        <h3 class="gradoTitulo">Grado Superior Desarrollo de Aplicaciones Web (DAW)</h3>
-                        <span class="institucion">IES San Juan de la Cruz</span>
-                        <span class="periodo">Septiembre 2023 - Junio 2025</span>
-                    </div>
-                    <div class="gradoDescripcion">
-                        <p>
-                          Formación especializada en creación y mantenimiento de aplicaciones y sitios web, con conocimientos en programación front-end y back-end, bases de datos, integración de APIs y buenas prácticas de desarrollo. Durante el grado desarrollé proyectos completos que combinan creatividad, funcionalidad y eficiencia tecnológica.
-                        </p>
-                    </div>
+                <div class="grado" *ngFor="let item of textos.educacionDetalle">
+                <div class="gradoInfo">
+                    <h3 class="gradoTitulo">{{ item.titulo }}</h3>
+                    <span class="institucion">{{ item.institucion }}</span>
+                    <span class="periodo">{{ item.periodo }}</span>
                 </div>
-
-                <div class="grado">
-                    <div class="gradoInfo">
-                        <h3 class="gradoTitulo">Grado Medio Telecomunicaciones</h3>
-                        <span class="institucion">IES Julio Verne</span>
-                        <span class="periodo">Septiembre 2021 - Junio 2023</span>
-                    </div>
-                    <div class="gradoDescripcion">
-                        <p>
-                          Formación centrada en instalación, mantenimiento y gestión de sistemas de telecomunicaciones y equipos audiovisuales. Durante el grado adquirí conocimientos en redes, transmisión de datos, configuración de dispositivos y producción audiovisual, desarrollando habilidades técnicas y creativas para proyectos multimedia y de comunicación.
-                        </p>
-                    </div>
+                <div class="gradoDescripcion">
+                    <p>{{ item.descripcion }}</p>
+                </div>
                 </div>
             </div>
         </div>
+
 
         <!-- Contenedor de tecnologias -->
         <div *ngIf="tabSeleccionado === 'tecnologias'" class="tecnologias">
             <div class="divBotones">
                 <button class="botonTecno" [ngClass]="{ 'activo': seccion === 'frontend' }" (click)="seleccionar('frontend')">Frontend</button>
                 <button class="botonTecno" [ngClass]="{ 'activo': seccion === 'backend' }" (click)="seleccionar('backend')">Backend</button>
-                <button class="botonTecno" [ngClass]="{ 'activo': seccion === 'bd' }" (click)="seleccionar('bd')">Bases de datos</button>
+                <button class="botonTecno botonBD" [ngClass]="{ 'activo': seccion === 'bd' }" (click)="seleccionar('bd')">{{ textos.bd }}</button>
                 <button class="botonTecno" [ngClass]="{ 'activo': seccion === 'frameworks' }" (click)="seleccionar('frameworks')">Frameworks</button>
-                <button class="botonTecno" [ngClass]="{ 'activo': seccion === 'herramientas' }" (click)="seleccionar('herramientas')">Herramientas y otros</button>
+                <button class="botonTecno botonOtros" [ngClass]="{ 'activo': seccion === 'herramientas' }" (click)="seleccionar('herramientas')">{{ textos.herramientas }}</button>
             </div>
         
             <!-- Contenidos -->
@@ -223,7 +207,7 @@
                         <div class="proyectoInfo">
                             <h3 class="proyectoTitulo">Filmogram</h3>
                             <p class="proyectoResumen">
-                            Aplicación web full-stack tipo red social de películas desarrollada con React, Node.js y MySQL.
+                                 {{ textos.descripcionProyectoFilmogram }}
                             </p>
                         </div>
                         <div class="proyectoTecnologias">
@@ -247,7 +231,7 @@
                         <div class="proyectoInfo">
                             <h3 class="proyectoTitulo">Booknest</h3>
                             <p class="proyectoResumen">
-                            Aplicación web full-stack red social de libros desarrollada con React, Node.js y MySQL.
+                                {{ textos.descripcionProyectoBooknest }}
                             </p>
                         </div>
                         <div class="proyectoTecnologias">

@@ -1,55 +1,79 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, NgZone, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
+import { IdiomaService } from '../services/idioma.service';
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './inicio.component.html',
-  styleUrl: './inicio.component.css'
+  styleUrls: ['./inicio.component.css']
 })
-
 export class InicioComponent implements OnInit {
   textoActual = '';
-  private textos = ['Desarrollador Full Stack', 'Entusiasta de la tecnología'];
-  private indiceTexto = 0;
+  idiomaActual: string = 'es';
 
+  textos: any = {}; // Textos fijos según idioma
+
+  private textosFijos: Record<string, any> = {
+    es: { fondo: 'Hola', soy: 'Soy ', misRedes: 'Mis redes' },
+    en: { fondo: 'Hello', soy: "I'm ", misRedes: 'My networks' }
+  };
+
+  private textosDinamicos: Record<string, string[]> = {
+    es: ['Desarrollador Full Stack', 'Entusiasta de la tecnología'],
+    en: ['Full Stack Developer', 'Tech Enthusiast']
+  };
+
+  private indiceTexto = 0;
   private velocidadEscribir = 30;
   private velocidadBorrar = 40;
   private pausaFinal = 2000;
+  private timeoutId: any;
 
-  constructor(private zone: NgZone) {}
+  constructor(private zone: NgZone, private idiomaService: IdiomaService) {}
 
   ngOnInit(): void {
-    // Ejecuta el ciclo de escritura fuera de Angular para no bloquear la hidratación
+    // Suscribirse al idioma
+    this.idiomaService.idioma$.subscribe(idioma => {
+      this.idiomaActual = idioma;
+      this.textos = this.textosFijos[idioma];
+      this.indiceTexto = 0;
+      this.iniciarCiclo();
+    });
+
+    // Iniciar ciclo de texto
     this.zone.runOutsideAngular(() => {
+      this.textos = this.textosFijos[this.idiomaActual];
       this.iniciarCiclo();
     });
   }
 
   private iniciarCiclo(): void {
-    const texto = this.textos[this.indiceTexto];
+    if (this.timeoutId) clearTimeout(this.timeoutId);
+
+    const textos = this.textosDinamicos[this.idiomaActual];
+    const texto = textos[this.indiceTexto];
     this.escribir(texto, 0);
   }
 
   private escribir(texto: string, i: number): void {
     if (i <= texto.length) {
-      // como estamos fuera de Angular, hay que forzar render solo cuando cambia texto
       this.zone.run(() => (this.textoActual = texto.slice(0, i)));
-      setTimeout(() => this.escribir(texto, i + 1), this.velocidadEscribir);
+      this.timeoutId = setTimeout(() => this.escribir(texto, i + 1), this.velocidadEscribir);
     } else {
-      setTimeout(() => this.borrar(texto, texto.length), this.pausaFinal);
+      this.timeoutId = setTimeout(() => this.borrar(texto, texto.length), this.pausaFinal);
     }
   }
 
   private borrar(texto: string, i: number): void {
     if (i > 0) {
       this.zone.run(() => (this.textoActual = texto.slice(0, i - 1)));
-      setTimeout(() => this.borrar(texto, i - 1), this.velocidadBorrar);
+      this.timeoutId = setTimeout(() => this.borrar(texto, i - 1), this.velocidadBorrar);
     } else {
-      this.indiceTexto = (this.indiceTexto + 1) % this.textos.length;
+      const textos = this.textosDinamicos[this.idiomaActual];
+      this.indiceTexto = (this.indiceTexto + 1) % textos.length;
       this.iniciarCiclo();
     }
   }
 }
-

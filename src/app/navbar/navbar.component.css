@@ -1,14 +1,25 @@
-nav{
-    background: linear-gradient(to bottom, rgb(70, 3, 3), rgba(255,0,0,0));
-    display: flex;
-    justify-content: space-between;
-    padding-left: 20%;
-    padding-right: 20%;
-    padding-top: 35px;
-    padding-bottom: 45px;
-    z-index: 999;
+/* NAV BAR BASE */
+nav {
+  background: linear-gradient(to bottom, rgb(70, 3, 3), rgba(255,0,0,0));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;      
+  padding: 25px 20%;
+  z-index: 999;
+  height: 120px;            
 }
 
+.navIzq,
+.navDer {
+  display: flex;
+  align-items: center;      
+}
+
+.navDer {
+  gap: 40px;
+}
+
+/* BOTONES */
 .boton {
   background-color: transparent;
   border: none;
@@ -17,16 +28,20 @@ nav{
   font-size: 19px;
   position: relative;
   overflow: hidden;
+  display: flex;           
+  align-items: center;
+  gap: 5px;      
+  padding-bottom: 2px;
 }
 
 .boton::after {
   content: "";
   position: absolute;
-  bottom: 0; /* Línea debajo del texto */
+  bottom: -5px;              
   left: 0;
   width: 0;
-  height: 3px; /* Grosor del subrayado */
-  background-color: #F85F5F; /* Color del subrayado */
+  height: 8px;
+  background-color: #F85F5F;
   transition: width 0.3s ease;
 }
 
@@ -34,8 +49,66 @@ nav{
   width: 100%;
 }
 
+.iconosNav {
+  font-size: 16px;
+  display: flex;
+}
 
-.navDer{
-    display: flex;
-    gap: 40px;
+/* LOGO */
+.logo {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+}
+
+/* RESPONSIVE: PANTALLAS MEDIANAS (769px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  nav {
+    padding: 20px 15%;
+    height: auto;
+  }
+
+  .navDer {
+    gap: 25px;
+  }
+
+  .boton {
+    font-size: 18px;  /* Reducir un poco el texto */
+    gap: 3px;
+  }
+
+  .boton .iconosNav {
+    font-size: 18px;  /* Iconos ligeramente más grandes */
+    margin-bottom: 5px;
+  }
+}
+
+/* RESPONSIVE: SOLO ICONOS EN PANTALLAS PEQUEÑAS */
+@media (max-width: 768px) {
+  nav {
+    padding: 15px 10%;
+    height: auto;
+    gap: 20px;
+  }
+
+  .navDer {
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;    
+  }
+
+  .boton {
+    font-size: 0;  /* Oculta el texto */
+    gap: 0;
+  }
+
+  .boton .iconosNav {
+    font-size: 20px;  /* Ajusta el tamaño de los iconos */
+    margin-bottom: 8px;
+  }
+
+  .boton .textoBoton {
+    display: none;  /* Oculta el texto */
+  }
 }

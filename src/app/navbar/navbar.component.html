@@ -1,12 +1,26 @@
 <nav>
-    <div class="navIzq">
-        <button class="boton">Jaime</button>
-    </div>
-    <div class="navDer">
-        <a routerLink="/inicio" class="boton">Inicio</a>
-        <a routerLink="/sobre-mi" class="boton">Sobre mí</a>
-        <button class="boton">Proyectos</button>
-        <button class="boton">CV</button>
-        <button class="boton">ES</button>
-    </div>
+  <div class="navIzq">
+      <img src="/assets/img/logoBlanco.png" alt="logo" class="logo">
+  </div>
+
+  <div class="hamburger" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+  </div>
+
+  <div class="navDer" [class.active]="menuAbierto">
+      <a routerLink="/inicio" class="boton">
+          <i class="far fa-home iconosNav"></i> {{ textos.inicio }}
+      </a>
+      <a routerLink="/sobre-mi" class="boton">
+          <i class="far fa-user iconosNav"></i> {{ textos.sobreMi }}
+      </a>
+      <a routerLink="/CV" class="boton">
+          <i class="far fa-file-lines iconosNav"></i> {{ textos.cv }}
+      </a>
+      <button class="boton" (click)="toggleIdioma()">
+          <i class="fas fa-globe iconosNav"></i> {{ idiomaActual?.toUpperCase() }}
+      </button>
+  </div>
 </nav>

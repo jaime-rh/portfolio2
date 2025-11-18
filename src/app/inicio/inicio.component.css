@@ -1,64 +1,68 @@
-:host{
-    z-index: 20;
+:host {
+  z-index: 20;
 }
 
-p{
-    color: white;
-    font-size: 40px;
-    letter-spacing: -1.8px;
+p {
+  color: white;
+  font-size: 40px;
+  letter-spacing: -1.8px;
 }
 
-.inicio{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 12%;
-    padding: 0;
-    align-items: center;
-    margin-top: 70px;
+.inicio {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 12%;
+  padding: 0;
+  align-items: center;
+  margin-top: 70px;
 }
 
-.inicioIzq{
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 100px;
-    padding-top: 20px;
+.inicioIzq {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100px;
+  padding-top: 20px;
 }
 
-.inicioDer{
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
+.inicioDer {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
 }
 
-.fotoJaime{
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
+.fotoJaime {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
 }
 
-.redes{
-    display: flex;
-    flex-direction: column;
-    margin-top: 130px;
-    padding-left: 100px;
+.redes {
+  display: flex;
+  flex-direction: column;
+  margin-top: 130px;
+  padding-left: 100px;
 }
 
-.nombreRedes{
-    display: flex;
-    justify-content: center;
+.nombreRedes {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 35px;
+  padding-bottom: 6px;
 }
 
-.botonesRedes{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+.botonesRedes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
-.presentacion{
-    display: flex;
-    flex-direction: column;
-    padding-top: 50PX;
+.presentacion {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  position: relative;
 }
 
 .boton {
@@ -79,49 +83,35 @@ p{
   box-shadow: 0 0 10px rgba(248, 95, 95, 0.6);
 }
 
-#nombreJaime{
-    color: #F85F5F;
-    font-weight: bolder;
-}
-
-.presentacion {
-  position: relative;
+#nombreJaime {
+  color: #F85F5F;
+  font-weight: bolder;
 }
 
 .cambiante {
   position: absolute;
   left: 0;
-  top: calc(100% + 4px); 
+  top: calc(100% + 4px);
   font-size: 34px;
   color: #F85F5F;
   font-weight: bold;
   border-right: 2px solid #F85F5F;
-  padding-right: 4px;          
-  margin: 0;            
-  line-height: 1;       
+  padding-right: 4px;
+  margin: 0;
+  line-height: 1;
   white-space: nowrap;
   animation: parpadeoCursor 1.2s ease-in-out infinite;
-}
-
-@keyframes parpadeoCursor {
-  0%, 100% {
-    border-right-color: rgba(248, 95, 95, 1); 
-  }
-  50% {
-    border-right-color: rgba(248, 95, 95, 0); 
-  }
-}
-
-.nombreRedes{
-    color: white;
-    font-size: 35px;
-    padding-bottom: 6px;
 }
 
 .mano {
   display: inline-block;
   transform-origin: 70% 70%;
   animation: saludar 2s ease-in-out infinite;
+}
+
+@keyframes parpadeoCursor {
+  0%, 100% { border-right-color: rgba(248, 95, 95, 1); }
+  50% { border-right-color: rgba(248, 95, 95, 0); }
 }
 
 @keyframes saludar {
@@ -134,5 +124,122 @@ p{
   60%, 100% { transform: rotate(0deg); }
 }
 
+/* RESPONSIVE: PANTALLAS MEDIANAS (769px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+   .inicio {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 30px;
+    padding: 0 20px;
+  }
 
+  .inicioIzq, .inicioDer {
+    padding: 0;
+  }
 
+  p {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .cambiante {
+    position: absolute;
+    top: calc(100% + 2px); /* más cerca del texto de presentación */
+    left: 50%;
+    transform: translateX(-50%); /* centra horizontalmente */
+    font-size: 22px;           /* más pequeño que en escritorio */
+    color: #F85F5F;
+    font-weight: bold;
+    border-right: 2px solid #F85F5F;
+    padding-right: 3px;
+    margin: 0;
+    line-height: 1;
+    white-space: nowrap;
+    animation: parpadeoCursor 1.2s ease-in-out infinite;
+  }
+
+  .fotoJaime {
+    width: 350px;
+    height: 350px;
+    margin-top: 30px;
+  }
+
+  .redes {
+    margin-top: 100px;
+    padding-left: 0;
+  }
+
+  .nombreRedes {
+    font-size: 24px;
+  }
+
+  .botonesRedes {
+    gap: 15px;
+  }
+
+  .boton {
+    padding: 5px 7px;
+    font-size: 14px;
+  }
+}
+
+/* RESPONSIVE: PANTALLAS PEQUEÑAS (<=768px) */
+@media (max-width: 768px) {
+  .inicio {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 30px;
+    padding: 0 20px;
+  }
+
+  .inicioIzq, .inicioDer {
+    padding: 0;
+  }
+
+  p {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .cambiante {
+    position: absolute;
+    top: calc(100% + 2px); /* más cerca del texto de presentación */
+    left: 50%;
+    transform: translateX(-50%); /* centra horizontalmente */
+    font-size: 22px;           /* más pequeño que en escritorio */
+    color: #F85F5F;
+    font-weight: bold;
+    border-right: 2px solid #F85F5F;
+    padding-right: 3px;
+    margin: 0;
+    line-height: 1;
+    white-space: nowrap;
+    animation: parpadeoCursor 1.2s ease-in-out infinite;
+  }
+
+  .fotoJaime {
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+  }
+
+  .redes {
+    margin-top: 60px;
+    padding-left: 0;
+  }
+
+  .nombreRedes {
+    font-size: 24px;
+  }
+
+  .botonesRedes {
+    gap: 15px;
+  }
+
+  .boton {
+    padding: 5px 7px;
+    font-size: 14px;
+  }
+}

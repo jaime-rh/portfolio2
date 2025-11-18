@@ -82,6 +82,7 @@
     width: 50%;    
     text-align: center;
     margin-bottom: 70px;
+    gap: 10px;
 }
 
 .sobreMiAbajo{
@@ -447,3 +448,212 @@
 .botonProyecto:hover {
   background-color: rgba(255,255,255,0.2);
 }
+
+/* Tablets: pantallas medianas */
+@media (max-width: 1024px) {
+    .sobremi {
+        margin-top: 30px;
+    }
+
+    .sobreMiArriba {
+        width: 70%;
+    }
+
+    .sobreMiAbajo {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .boton {
+        width: 120px;
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .contenido {
+        width: 80%;
+    }
+
+    .divBotones {
+        display: flex;
+        justify-content: center; /* Centra los botones horizontalmente */
+        flex-wrap: wrap;         /* Permite que los botones hagan wrap si no caben */
+        gap: 8px;                /* Espacio entre botones */
+        max-width: 100%;         /* Que ocupe todo el ancho disponible */
+        margin: 0 auto;          /* Centrar el contenedor */
+        padding: 10px;
+    }
+
+    .trabajos, .grados, .proyectos {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .trabajo, .grado, .proyecto {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .trabajoCont {
+        flex-direction: column;
+    }
+
+    .izquierda, .derecha {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contenidoLenguajes {
+        width: 100px;
+        padding: 15px 0;
+    }
+
+    .proyectoFoto img {
+        width: 100%;
+        height: auto;
+    }
+
+    .proyectoTecnologias{
+      justify-content: center;
+      padding-bottom: 10px;
+    }
+}
+
+/* Móviles: pantallas pequeñas */
+@media (max-width: 768px) {
+    .sobremi {
+        margin-top: 20px;
+        padding-bottom: 10px;
+    }
+
+    .sobreMiArriba {
+        width: 90%;
+        margin-bottom: 40px;
+    }
+
+    .sobreMiAbajo{
+      gap: 8px;
+    }
+
+    .boton {
+        padding: 10px;
+    }
+
+    .izquierda p{
+      margin-bottom: 15px;
+    }
+
+    .gradoDescripcion {
+      display: flex;
+      text-align: center;        
+    }
+
+    .icono{
+        font-size: 16px;
+    }
+
+    .contenido {
+        width: 98%;
+    }
+
+    .trabajos, .grados, .proyectos {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .trabajo, .grado, .proyecto {
+        padding: 20px;
+        gap: 10px;
+    }
+
+    .contenidoLenguajes {
+        width: 80px;
+        padding: 10px 0;
+        gap: 5px;
+    }
+
+    .front, .back, .bd, .frameworks, .herramientas {
+        flex-direction: row;
+        gap: 15px;
+        margin-top: 20px;
+        padding-bottom: 20px;
+        justify-content: center;
+    }
+
+    .tituloFront{
+        font-size: 12px;
+    }
+
+    .iconoFront{
+        font-size: 30px;
+    }
+
+    .divBotones {
+        display: flex;
+        justify-content: center; /* Centra los botones horizontalmente */
+        flex-wrap: wrap;         /* Permite que los botones hagan wrap si no caben */
+        gap: 8px;                /* Espacio entre botones */
+        max-width: 100%;         /* Que ocupe todo el ancho disponible */
+        margin: 0 auto;          /* Centrar el contenedor */
+        padding: 10px;
+    }
+
+    .botonTecno {
+        padding: 6px 10px;       /* Ajuste de padding para que el texto quede cómodo */
+        font-size: 12px;
+        min-width: 60px;          /* Evita que botones muy cortos se vean feos */
+        max-width: 150px;         /* Limita el ancho para botones largos */
+        white-space: nowrap;      /* Evita que el texto haga wrap dentro del botón */
+        text-overflow: ellipsis;  /* Si el texto es muy largo, pone "..." */
+        overflow: hidden;
+    }
+
+    .herramientas{
+      flex-wrap: wrap;
+    }
+
+    .proyectoFoto img {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+
+    .proyecto{
+      padding: 8px;
+    }
+
+    .proyectoTecnologias{
+      justify-content: center;
+      padding-bottom: 15px;
+    }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 480px) {
+    .titulo {
+        font-size: 28px;
+    }
+
+    .descripcion {
+        font-size: 16px;
+    }
+
+    .boton {
+        width: 80px;
+        padding: 4px 0px;
+        font-size: 12px;
+    }
+
+    .contenidoLenguajes {
+        width: 70px;
+        font-size: 12px;
+    }
+
+    .proyectoFoto img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
