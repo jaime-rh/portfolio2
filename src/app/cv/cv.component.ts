@@ -10,7 +10,7 @@ import { IdiomaService } from '../services/idioma.service';
 })
 export class CVComponent {
   idiomaActual: 'es' | 'en' = 'es';
-  pdfFilePath: string = 'assets/pdf/CV-Jaime-Romero-Hernández.pdf';
+  pdfFilePath: string = 'assets/pdf/cv-Jaime-Romero-Hernández.pdf';
   pdfUrl: SafeResourceUrl;
 
   textos = {
