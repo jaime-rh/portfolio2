@@ -1,0 +1,185 @@
+.keyboard-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0E0C12;
+    border-radius: 20px;
+    border: 1px solid rgb(99, 99, 99);
+    width: 100%;
+    max-width: 600px;
+    height: 340px;    
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+.code-container{
+    display: flex;
+    align-items: center;
+    background-color: #0E0C12;
+    border-radius: 20px;
+    border: 1px solid rgb(51, 51, 51);
+    width: 100%;
+    max-width: 600px;
+    height: 340px;    
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Scrollbar para Webkit (Chrome, Edge, Safari) */
+.code-block::-webkit-scrollbar {
+    width: 8px; /* grosor vertical */
+    height: 8px; /* grosor horizontal */
+}
+
+.code-block::-webkit-scrollbar-track {
+    background: #1a1a1a; /* color del track */
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.code-block::-webkit-scrollbar-thumb {
+    background-color: #555; /* color del pulgar */
+    border-radius: 20px;
+    border: 2px solid #1a1a1a; /* pequeño espacio alrededor */
+}
+
+.code-block::-webkit-scrollbar-thumb:hover {
+    background-color: #888; /* efecto hover */
+    cursor: pointer;
+}
+
+.row {
+  display: flex;
+  gap: 5px;
+}
+
+.key {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #f5f3f1, #e8e4df);
+  border: 1px solid #999;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  overflow: hidden;
+}
+
+.key .bisel {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  bottom: 12px;
+  right: 12px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #f8f6f4, #f0ede8);
+  box-shadow: -10px -10px 10px rgba(255, 255, 255, 0.6),
+              10px 5px 10px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}
+
+.key .letter {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(34, 34, 34);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.key.pressed {
+  transform: translate(0px, 2px);
+  box-shadow: 0 0 #bbb, 0 0 #aaa, 0 0 #999;
+}
+
+.spacer {
+  width: 80px;
+}
+
+.arribaComponente{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-bottom: 6px;
+}
+
+.arribaComponente h3{
+    font-size: 17px;
+}
+
+.code-block {
+     width: 100%;             /* Ocupa todo el ancho del contenedor */
+  height: 100%;            /* Ocupa toda la altura del contenedor */
+  padding: 10px 15px;      /* Padding interno, más pequeño que antes */
+  background: #1e1e1e;
+  color: #d4d4d4;
+  overflow: auto;          /* Scroll vertical y horizontal si es necesario */
+  border-radius: 20px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;       /* Letras más pequeñas para caber mejor */
+  line-height: 1.4;        /* Espaciado de línea cómodo */
+  box-sizing: border-box;
+}
+
+
+.buttons {
+  display: flex;
+  gap: 7px;
+}
+
+.code-btn,
+.copy-btn {
+  width: 40px;          /* mismo ancho fijo */
+  height: 40px;         /* mismo alto fijo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 13px;
+  position: relative;
+  overflow: hidden;
+}
+
+.buttons button:hover {
+  background: #F85F5F;
+}
+
+/* Toast copiado */
+.copy-toast {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #F85F5F;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  opacity: 0;
+  animation: fadeInOut 2s forwards;
+}
+
+/* Animación */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(10px); }
+}
+

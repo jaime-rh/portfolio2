@@ -8,6 +8,7 @@ interface Traducciones {
   inicio: string;
   sobreMi: string;
   cv: string;
+  componentes: string;
 }
 
 @Component({
@@ -25,12 +26,12 @@ toggleMenu() {
 }
 
   idiomaActual: string = 'es';
-  textos: Traducciones = { inicio: '', sobreMi: '', cv: '' }; // inicialización segura
+  textos: Traducciones = { inicio: '', sobreMi: '', cv: '', componentes: '' }; // inicialización segura
 
   // Definimos traducciones como readonly para TypeScript
   readonly traducciones: Record<string, Traducciones> = {
-    es: { inicio: 'Inicio', sobreMi: 'Sobre mí', cv: 'CV' },
-    en: { inicio: 'Home', sobreMi: 'About Me', cv: 'CV' }
+    es: { inicio: 'Inicio', sobreMi: 'Sobre mí', cv: 'CV', componentes: 'Componentes' },
+    en: { inicio: 'Home', sobreMi: 'About Me', cv: 'CV', componentes: 'Components' }
   };
 
   constructor(private idiomaService: IdiomaService) {}

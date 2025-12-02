@@ -1,0 +1,74 @@
+.contenedor{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    margin: 0 auto;
+}
+
+.componentes-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.componente{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.arribaComponente{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.abajoComponente{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 15px;
+    gap: 6px;
+}
+
+.asd{
+    display: flex;
+    gap: 2px;
+}
+
+.teclas{
+   width: 60px;
+  height: 60px;
+  background: linear-gradient(145deg, #f5f5f5, #dcdcdc); /* luz diagonal */
+  border: 1px solid #999;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+
+  /* Sombra para efecto 3D sobresaliendo hacia derecha y abajo */
+  box-shadow: 4px 4px 0 #bbb, 8px 8px 0 #aaa, 12px 12px 0 #999;
+
+  transition: all 0.1s ease;
+}
+
+.teclas:active {
+  transform: translateY(4px); /* simula que la tecla se presiona */
+  box-shadow: 0 0 #999;       /* elimina la sombra mientras se presiona */
+  background-color: #e0e0e0;  /* cambio de color al presionar */
+}
+
+.titulo{
+    display: flex;
+    justify-content: center;
+}
+
+.titulo h2{
+    margin-top: 50px;
+    margin-bottom: 35px;
+    font-size: 40px;
+}
