@@ -69,12 +69,12 @@ nav {
   }
 
   .navDer {
-    gap: 25px;
+    gap: 30px;
   }
 
   .boton {
-    font-size: 18px;  /* Reducir un poco el texto */
-    gap: 3px;
+    font-size: 0;  /* Oculta el texto */
+    gap: 0;
   }
 
   .boton .iconosNav {
@@ -92,8 +92,8 @@ nav {
   }
 
   .navDer {
-    gap: 20px;
-    justify-content: center;
+    gap: 17px;
+    justify-content: right;
     width: 100%;
     margin-top: 10px;    
   }
