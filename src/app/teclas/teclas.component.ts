@@ -103,13 +103,25 @@ export class TeclasComponent {
 
   togglePress(key: string, isDown: boolean) {
     this.pressed[key] = isDown;
-    if (!this.showCode && isDown) this.playKeySound();
+
+    if (!this.showCode && isDown) {
+      this.playKeySound();
+    }
   }
 
+  // Mejor activación de sonido en móviles
   playKeySound() {
-    this.keySound.currentTime = 0; // reinicia para presiones rápidas
-    this.keySound.play();
+    // Si el audio no ha sido activado por la interacción del usuario,
+    // se necesita "unlock" para evitar retrasos
+    this.keySound.pause();
+    this.keySound.currentTime = 0;
+    this.keySound.play().catch(() => {
+      // fallback: crear un nuevo Audio por si el anterior está bloqueado
+      const sound = new Audio('assets/sounds/tecla.mp3');
+      sound.play();
+    });
   }
+
 
   onCodeClick() {
     this.showCode = !this.showCode;

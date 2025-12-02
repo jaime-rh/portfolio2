@@ -6,6 +6,7 @@
         <i class="far fa-copy"></i>
     </button>
 
+    <!-- Botón de mostrar código / ocultar -->
     <button (click)="onCodeClick()" class="code-btn">
         <i class="fas" [ngClass]="showCode ? 'fa-eye' : 'fa-code'"></i>
     </button>
@@ -13,7 +14,7 @@
 </div>
 
 <div class="keyboard-container">
-  <!-- Mostrar teclado -->
+  <!-- Mostrar teclado solo si showCode es false -->
   <div *ngIf="!showCode">
     <div class="row" *ngFor="let row of keys">
       <ng-container *ngFor="let key of row">
@@ -22,7 +23,9 @@
                 [class.pressed]="pressed[key]"
                 (mousedown)="togglePress(key, true)"
                 (mouseup)="togglePress(key, false)"
-                (mouseleave)="togglePress(key, false)">
+                (mouseleave)="togglePress(key, false)"
+                (touchstart)="togglePress(key, true); $event.preventDefault()"
+                (touchend)="togglePress(key, false)">
           <span class="bisel"></span>
           <span class="letter">{{ key }}</span>
         </button>
@@ -31,13 +34,13 @@
     </div>
   </div>
 
-  <!-- Mostrar código resaltado -->
+  <!-- Mostrar código resaltado solo si showCode es true -->
   <div *ngIf="showCode" class="code-container">
     <pre class="code-block">
       <code class="language-ts" [innerHTML]="highlightedCode"></code>
     </pre>
   </div>
 
-   <!-- Toast de copiado -->
-    <div *ngIf="copied" class="copy-toast">¡Copiado!</div>
+  <!-- Toast de copiado -->
+  <div *ngIf="copied" class="copy-toast">¡Copiado!</div>
 </div>
