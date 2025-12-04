@@ -37,11 +37,12 @@
   border: none;
 }
 
-
 .pdf-images img {
+  display: block;      
+  margin: 0 auto 16px;
   width: 90%;
   height: auto;
-  margin-bottom: 16px;
 }
+
 
 
