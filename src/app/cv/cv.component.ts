@@ -59,12 +59,12 @@ export class CVComponent implements OnInit {
     if (this.isMobile) {
       this.pdfImages = this.idiomaActual === 'es'
         ? [
-            'assets/pdf/cv-esp-1.png',
-            'assets/pdf/cv-esp-2.png'
+            'assets/img/cv-esp-1.png',
+            'assets/img/cv-esp-2.png'
           ]
         : [
-            'assets/pdf/cv-en-1.png',
-            'assets/pdf/cv-en-2.png'
+            'assets/img/cv-en-1.png',
+            'assets/img/cv-en-2.png'
           ];
     } else {
       this.pdfImages = [];
