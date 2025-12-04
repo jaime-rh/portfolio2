@@ -13,11 +13,6 @@
   margin-top: 20px;
 }
 
-.pdf-viewer {
-  width: 90%;
-  height: 123vh;
-  border-radius: 15px;
-}
 
 .download-btn {
   background: #F85F5F;
@@ -34,3 +29,10 @@
 .download-btn:hover {
  transform: scale(1.03);
 }
+
+.pdf-viewer {
+  width: 100%;
+  height: 1122px;
+  max-width: 100%;
+}
+
