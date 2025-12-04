@@ -11,6 +11,7 @@
   align-items: center;
   width: 100%;
   margin-top: 20px;
+  overflow: hidden; /* Evita scroll horizontal */
 }
 
 
@@ -32,14 +33,15 @@
 
 .pdf-viewer {
   width: 80%;
-  height: 1122px; /* Altura fija para escritorio */
+  height: 1122px;
   border: none;
 }
 
 /* Para móviles: altura relativa (80vh) */
 @media (max-width: 768px) {
   .pdf-viewer {
-    height: 80vh;
+      width: 92%;
+    height: 70vh;
   }
 }
 
