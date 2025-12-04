@@ -31,8 +31,16 @@
 }
 
 .pdf-viewer {
-  width: 100%;
-  height: 1122px;
-  max-width: 100%;
+  width: 80%;
+  height: 1122px; /* Altura fija para escritorio */
+  border: none;
 }
+
+/* Para móviles: altura relativa (80vh) */
+@media (max-width: 768px) {
+  .pdf-viewer {
+    height: 80vh;
+  }
+}
+
 

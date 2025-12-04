@@ -1,9 +1,8 @@
 <div class="container">
   <iframe
     [src]="pdfFileSafe"
-    style="width:100%; height:80vh; border:none;">
+    class="pdf-viewer">
   </iframe>
-
 
   <a [href]="pdfFilePath" download class="download-btn">
     {{ textos[idiomaActual].descargar }}
