@@ -20,8 +20,8 @@ export class TeclasComponent implements OnInit, OnDestroy {
   textos: any = {};
   subscription!: Subscription;
 
-  private textosEs = { tituloComponente: 'Teclas' };
-  private textosEn = { tituloComponente: 'Keys' };
+  private textosEs = { tituloComponente: 'Teclas', copiado:'¡Copiado!' };
+  private textosEn = { tituloComponente: 'Keys', copiado:'Copied!' };
 
   // Teclado y estado de teclas
   keys = [

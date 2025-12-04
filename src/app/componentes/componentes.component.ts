@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { TeclasComponent } from "../teclas/teclas.component";
 import { IdiomaService } from '../services/idioma.service';
 import { Subscription } from 'rxjs';
+import { AudioComponent } from "../audio/audio.component";
 
 @Component({
   selector: 'app-componentes',
   standalone: true,
-  imports: [TeclasComponent],
+  imports: [TeclasComponent, AudioComponent],
   templateUrl: './componentes.component.html',
   styleUrls: ['./componentes.component.css'] 
 })

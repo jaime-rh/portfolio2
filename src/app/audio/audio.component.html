@@ -1,0 +1,45 @@
+<div class="arribaComponente">
+  <h3>{{ textos.tituloComponente }}</h3>
+  <div class="buttons">
+    <button *ngIf="showCode" (click)="copyCode()" class="copy-btn">
+      <i class="far fa-copy"></i>
+    </button>
+    <button (click)="onCodeClick()" class="code-btn">
+      <i class="fas" [ngClass]="showCode ? 'fa-eye' : 'fa-code'"></i>
+    </button>
+  </div>
+</div>
+
+<div class="audio-container">
+  <div *ngIf="!showCode" class="circle-visualizer">
+    <div class="circle">
+        <!-- Mitad izquierda -->
+        <div class="half left">
+            <div *ngFor="let anim of animationsLeft; let i = index"
+                class="line left-line"
+                [style.transform]="'translateY(' + ((i - animationsLeft.length / 2) * 7) + 'px) translateX(' + anim + 'px)'">
+            </div>
+        </div>
+
+        <!-- Mitad derecha -->
+        <div class="half right">
+            <div *ngFor="let anim of animationsRight; let i = index"
+                class="line right-line"
+                [style.transform]="'translateY(' + ((i - animationsRight.length / 2) * 7) + 'px) translateX(' + anim + 'px)'">
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div *ngIf="showCode" class="code-container">
+    <pre class="code-block">
+      <code class="language-ts" [innerHTML]="highlightedCode"></code>
+    </pre>
+  </div>
+
+  <button *ngIf="!showCode" class="power-btn" (click)="toggleRecording()">
+     <i class="fas fa-power-off"></i>
+  </button>
+
+  <div *ngIf="copied" class="copy-toast">{{ textos.copiado }}</div>
+</div>

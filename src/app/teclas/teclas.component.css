@@ -119,7 +119,7 @@
 }
 
 .code-block {
-     width: 100%;             /* Ocupa todo el ancho del contenedor */
+  width: 100%;             /* Ocupa todo el ancho del contenedor */
   height: 100%;            /* Ocupa toda la altura del contenedor */
   padding: 10px 15px;      /* Padding interno, más pequeño que antes */
   background: #1e1e1e;

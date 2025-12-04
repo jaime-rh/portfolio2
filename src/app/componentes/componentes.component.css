@@ -25,7 +25,7 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap; /* Para que los componentes bajen en pantallas pequeñas */
-    gap: 20px;
+    gap: 10px;
 }
 
 /* Cada componente individual */
