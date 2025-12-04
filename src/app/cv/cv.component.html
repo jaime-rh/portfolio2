@@ -1,9 +1,18 @@
 <div class="container">
+
+  <!-- Escritorio: iframe con PDF -->
   <iframe
+    *ngIf="!isMobile"
     [src]="pdfFileSafe"
     class="pdf-viewer">
   </iframe>
 
+  <!-- Móvil/Tablet: imágenes del PDF -->
+  <div *ngIf="isMobile" class="pdf-images">
+    <img *ngFor="let img of pdfImages" [src]="img" alt="Página del CV">
+  </div>
+
+  <!-- Botón de descarga -->
   <a [href]="pdfFilePath" download class="download-btn">
     {{ textos[idiomaActual].descargar }}
   </a>

@@ -37,12 +37,11 @@
   border: none;
 }
 
-/* Para móviles: altura relativa (80vh) */
-@media (max-width: 768px) {
-  .pdf-viewer {
-      width: 92%;
-    height: 70vh;
-  }
+
+.pdf-images img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 16px;
 }
 
 
