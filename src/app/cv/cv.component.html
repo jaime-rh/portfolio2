@@ -1,17 +1,14 @@
 <div class="container">
-  <object 
-    [data]="pdfUrl" 
-    type="application/pdf"
-    class="pdf-viewer">
-      <p>Tu navegador no puede mostrar PDF. 
-        <a [href]="pdfFilePath" download>Descargar PDF</a>
-      </p>
-  </object>
-  <a
-    [href]="pdfFilePath"
-    download="CV-Jaime-Romero-Hernández.pdf"
-    class="download-btn"
-  >
-    {{ textos[idiomaActual].descargar }}
-  </a>
+  <object
+    [data]="pdfFileSafe"
+    type="application/pdf"
+    width="80%"
+    height="1122px">
+    Tu navegador no soporta PDFs.
+    <a [href]="pdfFilePath" download>{{ textos[idiomaActual].descargar }}</a>
+  </object>
+
+  <a [href]="pdfFilePath" download class="download-btn">
+    {{ textos[idiomaActual].descargar }}
+  </a>
 </div>
