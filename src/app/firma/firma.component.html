@@ -1,0 +1,58 @@
+<div class="arribaComponente">
+  <h3>{{ textos.tituloComponente }}</h3>
+  <div class="buttons">
+    <!-- Botón de copiar solo si se está mostrando el código -->
+    <button *ngIf="showCode" (click)="copyCode()" class="copy-btn">
+        <i class="far fa-copy"></i>
+    </button>
+
+    <!-- Botón de mostrar código / ocultar -->
+    <button (click)="onCodeClick()" class="code-btn">
+        <i class="fas" [ngClass]="showCode ? 'fa-eye' : 'fa-code'"></i>
+    </button>
+  </div>
+</div>
+
+<div class="firma-container">
+    <!-- Zona para dibujar la firma -->
+    <div class="signature-container" *ngIf="!showCode">
+
+        <!-- Botón borrar dentro del contenedor -->
+        <button class="btn-clear" (click)="clear()">{{ textos.borrar }}</button>
+
+        <canvas #canvas
+                class="signature-pad"
+                (mousedown)="startDrawing($event)"
+                (mousemove)="draw($event)"
+                (mouseup)="stopDrawing()"
+                (mouseleave)="stopDrawing()"
+                (touchstart)="startDrawing($event)"
+                (touchmove)="draw($event)"
+                (touchend)="stopDrawing()">
+        </canvas>
+    </div>
+
+     <!-- Botón confirmar firma -->
+    <button *ngIf="!showCode" class="btn-confirmar" (click)="confirm()">{{ textos.confirmar }}</button>
+
+
+
+    <!-- Mostrar código resaltado solo si showCode es true -->
+    <div *ngIf="showCode" class="code-container">
+        <pre class="code-block">
+        <code class="language-ts" [innerHTML]="highlightedCode"></code>
+        </pre>
+    </div>
+
+    <!-- Toast de copiado -->
+    <div *ngIf="copied" class="copy-toast">{{ textos.copiado }}</div>
+</div>
+
+<!-- Toast de confirmacion de firma -->
+<div class="toast" *ngIf="showToast">
+    <img [src]="firmaImagen" *ngIf="firmaImagen">
+    <div class="toast-text">
+        <span>{{ textos.firma }}</span>
+        <span>{{ textos.confirmada }}</span>
+    </div>
+</div>
