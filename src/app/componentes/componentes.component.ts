@@ -4,11 +4,12 @@ import { IdiomaService } from '../services/idioma.service';
 import { Subscription } from 'rxjs';
 import { AudioComponent } from "../audio/audio.component";
 import { FirmaComponent } from "../firma/firma.component";
+import { AnimadoComponent } from "../animado/animado.component";
 
 @Component({
   selector: 'app-componentes',
   standalone: true,
-  imports: [TeclasComponent, AudioComponent, FirmaComponent],
+  imports: [TeclasComponent, AudioComponent, FirmaComponent, AnimadoComponent],
   templateUrl: './componentes.component.html',
   styleUrls: ['./componentes.component.css'] 
 })

@@ -1,0 +1,30 @@
+<div class="arribaComponente">
+  <h3>{{ textos.tituloComponente }}</h3>
+  <div class="buttons">
+    <!-- Botón de copiar solo si se está mostrando el código -->
+    <button *ngIf="showCode" (click)="copyCode()" class="copy-btn">
+        <i class="far fa-copy"></i>
+    </button>
+
+    <!-- Botón de mostrar código / ocultar -->
+    <button (click)="onCodeClick()" class="code-btn">
+        <i class="fas" [ngClass]="showCode ? 'fa-eye' : 'fa-code'"></i>
+    </button>
+  </div>
+</div>
+
+<div class="animado-container">
+    
+    <!-- Contenedor donde se dibuja el modelo 3D -->
+    <div #canvasContainer class="renderer"></div>
+
+    <!-- Mostrar código resaltado solo si showCode es true -->
+    <div *ngIf="showCode" class="code-container">
+        <pre class="code-block">
+        <code class="language-ts" [innerHTML]="highlightedCode"></code>
+        </pre>
+    </div>
+
+    <!-- Toast de copiado -->
+    <div *ngIf="copied" class="copy-toast">{{ textos.copiado }}</div>
+</div>
